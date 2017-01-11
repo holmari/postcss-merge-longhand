@@ -110,6 +110,10 @@ let tests = [{
     fixture: 'h1{border-width:3px;border-style:solid;border-color:inherit}',
     expected: 'h1{border-width:3px;border-style:solid;border-color:inherit}',
 }, {
+    message: 'should not merge rules with the initial keyword',
+    fixture: 'h1{border-width:3px;border-style:solid;border-color:initial}',
+    expected: 'h1{border-width:3px;border-style:solid;border-color:initial}',
+}, {
     message: 'should not crash on comments',
     fixture: 'h1{\n  border-width:3px;/* 1 */\n  border-style:solid;/* 2 */\n  border-color:red;/* 3 */}',
     expected: 'h1{/* 1 *//* 2 */\n  border:3px solid red;/* 3 */}'
